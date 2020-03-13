@@ -1,0 +1,27 @@
+﻿<Window x:Class="TestApp.CashSessionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestApp"
+        mc:Ignorable="d"
+        Title="CashSessionsWindow" Height="450" Width="800">
+    <StackPanel>
+        <StackPanel>
+            <DatePicker Name="DatePicker"  SelectedDateChanged="DateTimeChanged"></DatePicker>
+            <TextBlock Text="Выбор города"></TextBlock>
+            <ComboBox Name="ComboBox" Text="Выбор города">
+                <ComboBoxItem Content="Ростов" Name="rst"></ComboBoxItem>
+                <ComboBoxItem Content="Москва" Name="msc"></ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <DataGrid x:Name="CashSessionGrid" CanUserResizeRows="False" IsReadOnly="True" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" MouseDoubleClick="CashSessionClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="Id" Binding="{Binding id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата" Binding="{Binding operationDate}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Сумма заказа" Binding="{Binding payOrders}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя операции" Binding="{Binding processedCashName}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Window>
