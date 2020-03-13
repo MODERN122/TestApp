@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="OrderWindow" Height="450" Width="800">
     <DockPanel>
-        <Button Width="100" Height="50" VerticalAlignment="Bottom" MouseDoubleClick="SaveJsonFile"></Button>
+        <Button Width="100" Height="50" Content="Сохранить" VerticalAlignment="Bottom" Click="SaveJsonFile"></Button>
         <DataGrid x:Name="OrderGrid" MouseDoubleClick="OnContentChanged" CanUserResizeRows="False" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" AddingNewItem="OnContentChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название блюда" Binding="{Binding nomenclature.name}" IsReadOnly="True"></DataGridTextColumn>

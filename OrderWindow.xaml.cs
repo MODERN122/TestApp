@@ -40,7 +40,7 @@ namespace TestApp
             OrderGrid.ItemsSource = _order.orderItemsList;
         }
 
-        private async void SaveJsonFile(object sender, MouseButtonEventArgs e)
+        private async void SaveJsonFile(object sender, RoutedEventArgs e)
         {
             FileDialog dialog = new SaveFileDialog();
             dialog.InitialDirectory = Directory.GetCurrentDirectory();
