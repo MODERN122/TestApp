@@ -8,12 +8,18 @@
         Title="OrderWindow" Height="450" Width="800">
     <DockPanel>
         <Button Width="100" Height="50" Content="Сохранить" VerticalAlignment="Bottom" Click="SaveJsonFile"></Button>
-        <DataGrid x:Name="OrderGrid" MouseDoubleClick="OnContentChanged" CanUserResizeRows="False" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" AddingNewItem="OnContentChanged">
+        <DataGrid x:Name="OrderGrid" CanUserResizeRows="False" x:FieldModifier="public" AutoGenerateColumns="False" ColumnWidth="*" AddingNewItem="OnContentChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название блюда" Binding="{Binding nomenclature.name}" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn Header="Номер" Binding="{Binding amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Количество порций" Binding="{Binding amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Окончательная сумма" Binding="{Binding resultPrice}" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn Header="Количество блюд" Binding="{Binding number}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Delete" Width="60" CanUserResize="False">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Click="Delete"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>

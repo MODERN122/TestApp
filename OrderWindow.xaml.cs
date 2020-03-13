@@ -22,6 +22,7 @@ namespace TestApp
     public partial class OrderWindow : Window,IDisposable
     {
         private Order _order = new Order();
+        public DataGrid datagrid;
 
         public OrderWindow()
         {
@@ -38,6 +39,7 @@ namespace TestApp
             InitializeComponent();
             this.DataContext = this;
             OrderGrid.ItemsSource = _order.orderItemsList;
+            datagrid = OrderGrid;
         }
 
         private async void SaveJsonFile(object sender, RoutedEventArgs e)
@@ -60,6 +62,15 @@ namespace TestApp
         public void Dispose()
         {
             this.Close();
+        }
+
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+            if(OrderGrid.SelectedIndex==-1)
+                return;
+            _order.orderItemsList.Remove(OrderGrid.SelectedItem as Orderitemslist);
+            datagrid.ItemsSource=null;
+            datagrid.ItemsSource = _order.orderItemsList;
         }
     }
 }
